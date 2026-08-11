@@ -1,0 +1,35 @@
+def bin_search(arr,key):
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        mid = (high+low)//2
+        if arr[mid] == key:
+            return mid
+        elif arr[mid] < key:
+            low = mid+1
+        else:
+            high = mid-1
+    return -1
+
+n = int(input("Enter the number of elements: "))
+
+arr = []
+
+print("Enter elements:")
+for i in range(n):
+    arr.append(int(input()))
+if arr == sorted(arr):
+    print("\n input list is already sorted")
+else:
+    print("input list is not sorted")
+    print("sorting list....")
+    arr.sort()
+    print(f"Sorted List : {arr}")
+
+key = int(input("Enter the key: "))
+
+result = bin_search(arr, key)
+if result!=-1:
+    print(f"Element found at index {result}")
+else:
+    print("Element not found")
