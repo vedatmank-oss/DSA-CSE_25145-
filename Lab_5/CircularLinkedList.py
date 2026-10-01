@@ -1,16 +1,16 @@
 class Node:
-    #[cite: 12]
+    # Initialize Node
     def __init__(self, data):
         self.data = data
         self.next = None
 
 class CircularLinkedList:
-    #[cite: 12]
+    # Initialize Circular Linked List
     def __init__(self):
         self.head = None
         self.tail = None
 
-    # Insert at Beginning[cite: 13]
+    # Insert at Beginning
     def insert_begin(self, data):
         new = Node(data)
         # Case 1: Empty list
@@ -24,7 +24,7 @@ class CircularLinkedList:
             self.head = new
             self.tail.next = self.head
 
-    # Insert at End[cite: 14]
+    # Insert at End
     def insert_end(self, data):
         new = Node(data)
         # Case 1: Empty list
@@ -38,7 +38,7 @@ class CircularLinkedList:
             self.tail.next = new
             self.tail = new
 
-    # Insert at Particular Position[cite: 15]
+    # Insert at Particular Position
     # Position starts from 0
     def insert_position(self, position, data):
         # Insert at beginning
@@ -53,7 +53,7 @@ class CircularLinkedList:
         new = Node(data)
         temp = self.head
         
-        # Move to the node before the required position[cite: 16]
+        # Move to the node before the required position
         for i in range(position - 1):
             temp = temp.next
             # We have completed one circle
@@ -69,7 +69,7 @@ class CircularLinkedList:
         if temp == self.tail:
             self.tail = new
 
-    # Delete at Beginning[cite: 17]
+    # Delete at Beginning
     def delete_begin(self):
         if self.head is None:
             print("List is empty")
@@ -84,7 +84,7 @@ class CircularLinkedList:
             self.head = self.head.next
             self.tail.next = self.head
 
-    # Delete at End[cite: 18]
+    # Delete at End
     def delete_end(self):
         if self.head is None:
             print("List is empty")
@@ -103,7 +103,7 @@ class CircularLinkedList:
         temp.next = self.head
         self.tail = temp
 
-    # Traverse the Circular Linked List[cite: 19]
+    # Traverse the Circular Linked List
     def traverse(self):
         if self.head is None:
             print("List is empty")
@@ -117,7 +117,7 @@ class CircularLinkedList:
                 break
         print("(back to head)")
 
-    # Display Head and Tail[cite: 20]
+    # Display Head and Tail
     def display_head_tail(self):
         if self.head is None:
             print("List is empty")
@@ -127,43 +127,41 @@ class CircularLinkedList:
             print("Tail.next =", self.tail.next.data)
 
 
-# Menu-driven implementation
-if __name__ == "__main__":
-    cll = CircularLinkedList()
+cll = CircularLinkedList()
+
+while True:
+    print("\n--- Circular Linked List Menu ---")
+    print("1. Insert at Beginning")
+    print("2. Insert at End")
+    print("3. Insert at Position")
+    print("4. Delete at Beginning")
+    print("5. Delete at End")
+    print("6. Traverse List")
+    print("7. Display Head and Tail")
+    print("8. Exit")
     
-    while True:
-        print("\n--- Circular Linked List Menu ---")
-        print("1. Insert at Beginning")
-        print("2. Insert at End")
-        print("3. Insert at Position")
-        print("4. Delete at Beginning")
-        print("5. Delete at End")
-        print("6. Traverse List")
-        print("7. Display Head and Tail")
-        print("8. Exit")
-        
-        ch = int(input("Enter your choice: "))
-        
-        if ch == 1:
-            x = int(input("Value: "))
-            cll.insert_begin(x)
-        elif ch == 2:
-            x = int(input("Value: "))
-            cll.insert_end(x)
-        elif ch == 3:
-            pos = int(input("Position (starts from 0): "))
-            x = int(input("Value: "))
-            cll.insert_position(pos, x)
-        elif ch == 4:
-            cll.delete_begin()
-        elif ch == 5:
-            cll.delete_end()
-        elif ch == 6:
-            cll.traverse()
-        elif ch == 7:
-            cll.display_head_tail()
-        elif ch == 8:
-            print("Exiting...")
-            break
-        else:
-            print("Invalid choice, please try again.")
+    ch = int(input("Enter your choice: "))
+    
+    if ch == 1:
+        x = int(input("Value: "))
+        cll.insert_begin(x)
+    elif ch == 2:
+        x = int(input("Value: "))
+        cll.insert_end(x)
+    elif ch == 3:
+        pos = int(input("Position (starts from 0): "))
+        x = int(input("Value: "))
+        cll.insert_position(pos, x)
+    elif ch == 4:
+        cll.delete_begin()
+    elif ch == 5:
+        cll.delete_end()
+    elif ch == 6:
+        cll.traverse()
+    elif ch == 7:
+        cll.display_head_tail()
+    elif ch == 8:
+        print("Exiting...")
+        break
+    else:
+        print("Invalid choice, please try again.")

@@ -1,11 +1,11 @@
 class StackEx:
-    # 
+    # Initialize Stack
     def __init__(self, size):
         self.size = size
         self.stack = [None] * size
         self.top = -1
 
-    # Push operation 
+    # Push operation
     def push(self, item):
         if self.top == self.size - 1:
             print("Stack Overflow")
@@ -14,7 +14,7 @@ class StackEx:
             self.stack[self.top] = item
             print(item, "pushed into the stack")
 
-    # Pop operation 
+    # Pop operation
     def pop(self):
         if self.top == -1:
             print("Stack Underflow")
@@ -24,14 +24,14 @@ class StackEx:
             self.top -= 1
             print(item, "popped from the stack")
 
-    # Peek operation 
+    # Peek operation
     def peek(self):
         if self.top == -1:
             print("Stack is empty")
         else:
             print("Top element:", self.stack[self.top])
 
-    # Display operation 
+    # Display operation
     def display(self):
         if self.top == -1:
             print("Stack is empty")
@@ -40,7 +40,7 @@ class StackEx:
             for i in range(self.top, -1, -1):
                 print(self.stack[i])
 
-# Create stack 
+# Create stack
 size = int(input("Enter the size of the stack: "))
 s = StackEx(size)
 while True:
